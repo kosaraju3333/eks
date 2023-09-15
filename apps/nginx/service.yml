@@ -7,5 +7,7 @@ spec:
   selector:
     app: nginx
   ports:
+    # Below Port number is a service port number
     - port: 80
+      # Below targetPort number is a Container Port number
       targetPort: 80
