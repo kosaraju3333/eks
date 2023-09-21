@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spontan-portal-dev-deployment
+  labels:
+    app: spontan-portal-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spontan-portal-dev
+  template:
+    metadata:
+      name: spontan-portal-dev-app
+      labels:
+        app: spontan-portal-dev
+    spec:
+      containers:
+      - name: spontan-portal-dev-container
+        image: kosaraju333/portal-spontansolutions:V1
+        ports:
+        - containerPort: 3000
+
