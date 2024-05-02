@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: spontan-portal-dev-ingress-resource
+  annotations:
+    #    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/certificate-arn: enter aws certificate ARN here
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'  
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - host: portal123.spontansolutions.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: spontan-portal-dev-service
+              port:
+                number: 80
