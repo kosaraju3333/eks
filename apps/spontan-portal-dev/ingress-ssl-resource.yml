@@ -5,7 +5,7 @@ metadata:
   name: spontan-portal-dev-ingress-resource
   annotations:
     #    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:828048069567:certificate/52b716a1-2af8-477a-abb4-f720289b6d14
+    alb.ingress.kubernetes.io/certificate-arn: aws certificate arn
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: portal123.spontansolutions.com
+    - host: host_name-1
       http:
         paths:
         - path: /
@@ -23,7 +23,7 @@ spec:
               name: spontan-portal-dev-service
               port:
                 number: 80
-    - host: nginx123.spontansolutions.com
+    - host: host_name-2
       http:
         paths:
         - path: /
