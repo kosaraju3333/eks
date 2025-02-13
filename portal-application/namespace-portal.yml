@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: portal
+  name: portal-application
   labels:
-    name: portal
+    name: portal-application
 
