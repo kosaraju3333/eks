@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-app-deployment
+  namespace: portal-app
+  labels:
+    app: portal-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: portal-app
+  template:
+    metadata:
+      name: portal-app-app
+      labels:
+        app: portal-app
+    spec:
+      containers:
+      - name: portal-app-container
+        image: kosaraju333/portal-application:V1
+        env:
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: portal-app-configmap
+              key: host
+
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: portal-app-configmap
+              key: port
+
+        - name: USER
+          valueFrom:
+            secretKeyRef:
+              name: portal-app-secrets
+              key: user
+
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: portal-app-secrets
+              key: password
+
+        - name: DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: portal-app-secrets
+              key: database
+
+        ports:
+        - containerPort: 3000
