@@ -4,5 +4,5 @@ metadata:
   name: portal-app-configmap
   namespace: portal-app
 data:
-  host: "portal-database-service.portal-database.svc.local"
+  host: "portal-database-service.portal-database.svc.cluster.local"
   port: "5432"

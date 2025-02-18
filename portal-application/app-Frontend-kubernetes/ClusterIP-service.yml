@@ -7,7 +7,8 @@ spec:
   selector:
     app: portal-app
   ports:
-    # Below Port number is a service port number
-    - port: 80
+    - protocol: TCP
+      # Below Port number is a service port number
+      port: 80
       # Below targetPort is a Container Port number
       targetPort: 3000
