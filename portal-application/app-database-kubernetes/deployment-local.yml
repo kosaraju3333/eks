@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portal-database-deployment
+  name: portal-database-local-deployment
   namespace: portal-database
   labels:
     app: portal-database
@@ -19,6 +19,8 @@ spec:
       containers:
       - name: portal-database-container
         image: kosaraju333/portal-application-database:V1
+          #image: postgres:latest
+
         env:
         - name: POSTGRES_USER
           valueFrom:
@@ -47,4 +49,4 @@ spec:
       volumes:
        - name: postgres-db
          persistentVolumeClaim:
-           claimName: postgres-ebs-pvc-sc    
+           claimName: postgres-volume-local-claim
