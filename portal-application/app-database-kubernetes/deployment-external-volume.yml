@@ -41,8 +41,9 @@ spec:
             secretKeyRef:
               name: portal-database-secrets
               key: database
+
         volumeMounts:
-          - mountPath: /var/lib/postgresql/data/pgdata
+          - mountPath: /var/lib/postgresql/data
             name: postgres-db
 
         ports:
