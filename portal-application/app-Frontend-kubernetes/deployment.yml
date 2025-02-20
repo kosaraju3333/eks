@@ -52,3 +52,9 @@ spec:
 
         ports:
         - containerPort: 3000
+
+        resources:
+          limits:
+            cpu: 200m
+          requests:
+            cpu: 200m
